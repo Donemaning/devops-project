@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Run the AWS CLI command to list all S3 buckets
+aws s3 ls
+
