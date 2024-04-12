@@ -12,7 +12,7 @@ pipeline {
       steps {
         script {
           // Use AWS CLI to create an EC2 instance
-          sh 'aws ec2 run-instances --image-id your-ami-id --instance-type your-instance-type --key-name your-key-name --security-group-ids your-security-group-id --subnet-id your-subnet-id --tag-specifications ResourceType=instance,Tags=[{Key=Name,Value=YourInstanceName}]'
+          sh 'aws ec2 run-instances --image-id ami-07413789aae50b0e0 --instance-type t2.micro --key-name devopsmachinev1 --security-group-ids sg-03cef694bd8017e60 --subnet-id subnet-07c29685c0def7cde --tag-specifications ResourceType=instance,Tags=[{Key=Name,Value=First-Jenkins}]'
         }
       }
     }
