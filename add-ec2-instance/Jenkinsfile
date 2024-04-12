@@ -1,0 +1,26 @@
+pipeline {
+  agent {
+    docker { image 'node:16-alpine' }
+  }
+  stages {
+    stage('Test') {
+      steps {
+        sh 'node --version'
+      }
+    }
+    stage('Create EC2 Instance') {
+      steps {
+        script {
+          // Use AWS CLI to create an EC2 instance
+          sh 'aws ec2 run-instances --image-id your-ami-id --instance-type your-instance-type --key-name your-key-name --security-group-ids your-security-group-id --subnet-id your-subnet-id --tag-specifications ResourceType=instance,Tags=[{Key=Name,Value=YourInstanceName}]'
+        }
+      }
+    }
+    stage('Deploy') {
+      steps {
+        // Add deployment steps here
+        echo 'Deploying...'
+      }
+    }
+  }
+}
